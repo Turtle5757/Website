@@ -1,230 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>My Games — Gallery</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Basic, clean styling. Edit to taste. */
-    :root{
-      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#60a5fa;
-      --glass: rgba(255,255,255,0.03);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#e6eef8;background:linear-gradient(180deg,#071028 0%,#071a2b 100%);}
-    header{display:flex;gap:16px;align-items:center;padding:18px 24px}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7dd3fc);display:flex;align-items:center;justify-content:center;color:#032; font-weight:700}
-    h1{margin:0;font-size:18px}
-    p.lead{margin:0;color:var(--muted);font-size:13px}
-
-    main{max-width:1100px;margin:20px auto;padding:20px}
-    .toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:18px}
-    .search{flex:1;display:flex;gap:8px}
-    input[type=search]{flex:1;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:inherit}
-    .btn{padding:10px 14px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),#38bdf8);color:#052;cursor:pointer;font-weight:600}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
-    .thumb{height:150px;border-radius:8px;background:#021225;display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .thumb iframe{width:100%;height:100%;border:0}
-    .meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
-    .meta .title{font-weight:600}
-    .meta .sub{color:var(--muted);font-size:13px}
-    .actions{display:flex;gap:8px;margin-top:10px}
-    .secondary{padding:8px 10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);cursor:pointer}
-
-    /* Modal */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;padding:20px}
-    .modal{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px;max-width:980px;width:100%;border:1px solid rgba(255,255,255,0.04)}
-    .modal iframe{width:100%;height:520px;border:0;border-radius:6px}
-
-    footer{max-width:1100px;margin:20px auto;color:var(--muted);font-size:13px;padding:0 20px}
-
-    /* responsive tweaks */
-    @media (max-width:600px){.thumb{height:140px}.modal iframe{height:420px}}
-
-    /* small helper */
-    .note{font-size:12px;color:var(--muted)}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Game Portal</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="brand">
-      <div class="logo">GG</div>
-      <div>
-        <h1>My Games</h1>
-        <p class="lead">A simple gallery to host and play your HTML5 games</p>
-      </div>
+<header>
+    <h1>My Game Portal</h1>
+</header>
+
+<main>
+    <div class="game-container">
+        <!-- Game Cards -->
+        <div class="game-card" data-url="https://turtle5757.github.io/reactionTime/">
+            <img src="https://via.placeholder.com/300x200?text=Reaction+Time" alt="Reaction Time">
+            <h2>Reaction Time</h2>
+        </div>
+        <div class="game-card" data-url="https://turtle5757.github.io/MemoryTraining/">
+            <img src="https://via.placeholder.com/300x200?text=Memory+Training" alt="Memory Training">
+            <h2>Memory Training</h2>
+        </div>
+        <div class="game-card" data-url="https://turtle5757.github.io/aimTraining/">
+            <img src="https://via.placeholder.com/300x200?text=Aim+Training" alt="Aim Training">
+            <h2>Aim Training</h2>
+        </div>
+        <div class="game-card" data-url="https://turtle5757.github.io/Idle-Empire/">
+            <img src="https://via.placeholder.com/300x200?text=Idle+Empire" alt="Idle Empire">
+            <h2>Idle Empire</h2>
+        </div>
     </div>
-  </header>
+</main>
 
-  <main>
-    <div class="toolbar">
-      <div class="search">
-        <input id="q" type="search" placeholder="Search games by title or tag" oninput="renderGallery()" />
-      </div>
-      <div style="display:flex;gap:8px;align-items:center">
-        <button class="btn" onclick="openUploadModal()">+ Add Game</button>
-        <button class="secondary" onclick="downloadTemplate()">Download Template</button>
-      </div>
+<!-- Modal -->
+<div id="gameModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <iframe src="" frameborder="0" id="gameFrame"></iframe>
     </div>
+</div>
 
-    <div id="gallery" class="grid"></div>
+<footer>
+    <p>&copy; 2025 My Game Portal</p>
+</footer>
 
-    <p class="note" style="margin-top:12px">Tip: put each game in a subfolder under <code>/games/your-game-folder/index.html</code>. We embed iframes for quick testing; you can also link externally.</p>
-  </main>
-
-  <div class="modal-backdrop" id="modal">
-    <div class="modal" role="dialog">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-        <strong id="modalTitle">Game</strong>
-        <button class="secondary" onclick="closeModal()">Close</button>
-      </div>
-      <iframe id="modalIframe" src="about:blank"></iframe>
-      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px">
-        <a id="openInNew" class="secondary" target="_blank" rel="noopener">Open in new tab</a>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>Made with ❤️ — Edit <code>gamesData</code> in the JS to add your games. Host on GitHub Pages, Netlify, or any static host.</p>
-  </footer>
-
-  <script>
-    /* ==================================================
-       HOW TO USE
-       1) Create a folder structure like:
-          /index.html (this file)
-          /games/
-            /my-first-game/index.html
-            /my-second-game/index.html
-       2) Edit the gamesData array below to add your games.
-       3) Upload the whole folder to GitHub Pages or a static host.
-       4) For external games (CrazyGames, itch.io), set url to the hosted page.
-       ==================================================== */
-
-    const gamesData = [
-      {id:'reaction-time',title:'Reaction Time Trainer',author:'You',url:'https://turtle5757.github.io/reactionTime/',thumb:'',tags:['reaction','speed','reflex']},
-      {id:'aim-training',title:'Aim Training',author:'You',url:'https://turtle5757.github.io/aimTraining/',thumb:'',tags:['aim','fps','training']},
-      {
-        id: 'example-1',
-        title: 'Example: Pong',
-        author: 'You',
-        url: 'games/example-pong/index.html', // relative path to your game's index.html
-        thumb: '', // optional: path to a thumbnail image
-        tags: ['arcade','multiplayer']
-      },
-      {
-        id: 'example-2',
-        title: 'External Demo',
-        author: 'Web Demo',
-        url: 'https://example.com',
-        thumb: '',
-        tags: ['demo']
-      }
-    ];
-
-    function createCard(game){
-      const card = document.createElement('article');
-      card.className = 'card';
-
-      const thumb = document.createElement('div');
-      thumb.className = 'thumb';
-      if(game.url && game.url.startsWith('http')){
-        const link = document.createElement('a');
-        link.href = game.url; link.target = '_blank'; link.rel = 'noopener';
-        link.textContent = game.title + ' (external)';
-        thumb.appendChild(link);
-      } else if(game.thumb){
-        const img = document.createElement('img'); img.src = game.thumb; img.style.width='100%'; img.style.height='100%'; img.style.objectFit='cover';
-        thumb.appendChild(img);
-      } else {
-        // try to embed a small iframe preview — may be blocked by X-Frame-Options for some hosts
-        const smallFrame = document.createElement('iframe');
-        smallFrame.src = game.url; smallFrame.loading = 'lazy';
-        smallFrame.title = game.title;
-        thumb.appendChild(smallFrame);
-      }
-
-      const title = document.createElement('div');
-      title.className = 'meta';
-      title.innerHTML = `<div><div class="title">${escapeHtml(game.title)}</div><div class="sub">by ${escapeHtml(game.author || 'Unknown')}</div></div>`;
-
-      const actions = document.createElement('div');
-      actions.className = 'actions';
-      const play = document.createElement('button'); play.className='btn'; play.textContent='Play';
-      play.onclick = ()=> openModal(game);
-      const info = document.createElement('button'); info.className='secondary'; info.textContent='Details';
-      info.onclick = ()=> alert(`${game.title}\nby ${game.author}\nTags: ${game.tags?.join(', ') || '—'}`);
-
-      actions.appendChild(play); actions.appendChild(info);
-
-      card.appendChild(thumb);
-      card.appendChild(title);
-      card.appendChild(actions);
-
-      return card;
-    }
-
-    function renderGallery(){
-      const q = (document.getElementById('q').value || '').toLowerCase().trim();
-      const gallery = document.getElementById('gallery');
-      gallery.innerHTML = '';
-      const filtered = gamesData.filter(g=>{
-        if(!q) return true;
-        return (g.title||'').toLowerCase().includes(q) || (g.tags||[]).some(t=>t.includes(q));
-      });
-      for(const g of filtered) gallery.appendChild(createCard(g));
-    }
-
-    function openModal(game){
-      const modal = document.getElementById('modal');
-      const iframe = document.getElementById('modalIframe');
-      const title = document.getElementById('modalTitle');
-      const openInNew = document.getElementById('openInNew');
-      iframe.src = game.url;
-      title.textContent = game.title + ' — ' + (game.author||'Unknown');
-      openInNew.href = game.url;
-      modal.style.display = 'flex';
-    }
-    function closeModal(){
-      const modal = document.getElementById('modal');
-      const iframe = document.getElementById('modalIframe');
-      iframe.src = 'about:blank';
-      modal.style.display = 'none';
-    }
-
-    function escapeHtml(s){return String(s).replace(/[&"'<>]/g,function(c){return{'&':'&amp;','"':'&quot;','\'":"&#39;","<":"&lt;",">":"&gt;"}[c]})}
-
-    function openUploadModal(){
-      // quick helper to add a new game via prompt. For production, replace with a proper form.
-      const title = prompt('Game title (e.g. My Cool Game)');
-      if(!title) return;
-      const url = prompt('Relative URL to the game (e.g. games/my-game/index.html) or full URL');
-      if(!url) return;
-      const author = prompt('Author name (optional)') || 'You';
-      const tags = prompt('Comma-separated tags (optional)') || '';
-      gamesData.unshift({id: 'g-'+Date.now(), title, author, url, tags: tags.split(',').map(s=>s.trim()).filter(Boolean)});
-      renderGallery();
-    }
-
-    function downloadTemplate(){
-      // creates a tiny zip-free template as a text file you can copy. For full zips, use a build tool or GitHub repo.
-      const txt = `Folder structure:\n/games/your-game/index.html\nindex.html (this file)\n\nSample game index.html:\n<!doctype html>\n<html><body><h1>Your Game</h1><script src=\"game.js\"></script></body></html>`;
-      const blob = new Blob([txt], {type:'text/plain'});
-      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'games-template.txt'; a.click();
-    }
-
-    // initial render
-    renderGallery();
-
-    // close modal when clicking backdrop
-    document.getElementById('modal').addEventListener('click', (e)=>{ if(e.target.id==='modal') closeModal(); });
-  </script>
+<script src="script.js"></script>
 </body>
 </html>
