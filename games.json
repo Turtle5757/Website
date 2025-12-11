@@ -7,7 +7,7 @@
     "category": "Training",
     "tags": ["reaction", "training"],
     "description": "Train your reaction time.",
-    "featured": true,
+    "featured": false,
     "published": "2025-09-01",
     "screenshots": [
       "https://i.imgur.com/abc123.png",
@@ -27,14 +27,26 @@
     "screenshots": []
   },
   {
+    "id": "clicker-001",
+    "title": "Simple Clicker Game",
+    "url": "https://turtle5757.github.io/Clicker/",
+    "thumbnail": "",
+    "category": "Clicker",
+    "tags": ["singleplayer", "clicker",],
+    "description": "Simple Clicker Game with upgrades, generators, prestiging, and achievements.",
+    "featured": false,
+    "published": "2025-10-05",
+    "screenshots": []
+  },
+  {
     "id": "memory-001",
     "title": "Memory Trainer",
     "url": "https://turtle5757.github.io/MemoryTraining/",
     "thumbnail": "https://i.imgur.com/kjh987.png",
-    "category": "Memory Trainer",
+    "category": "Training",
     "tags": ["memory", "training"],
     "description": "Train your memory",
-    "featured": true,
+    "featured": false,
     "published": "2024-11-20",
     "screenshots": [
       "https://i.imgur.com/kjh987.png"
