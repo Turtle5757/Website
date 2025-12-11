@@ -39,6 +39,18 @@
     "screenshots": []
   },
   {
+    "id": "multiplayer-001",
+    "title": "Imposter Game Online",
+    "url": "https://imposter-hkmc.onrender.com/",
+    "thumbnail": "",
+    "category": "Multiplayer",
+    "tags": ["multiplayer", "strategy"],
+    "description": "Imposter game where 1 person is imposter and just gets the category and everyone else gets a word. You have to try and vote out the imposter to win or try to not get voted out if you are the imposter.",
+    "featured": false,
+    "published": "2025-10-05",
+    "screenshots": []
+  },
+  {
     "id": "memory-001",
     "title": "Memory Trainer",
     "url": "https://turtle5757.github.io/MemoryTraining/",
