@@ -1,0 +1,43 @@
+[
+  {
+    "id": "shooter-001",
+    "title": "Shooter Game",
+    "url": "https://yourfriend.github.io/shooter/",
+    "thumbnail": "https://i.imgur.com/abc123.png",
+    "category": "Shooter",
+    "tags": ["action", "multiplayer"],
+    "description": "Fast-paced top-down shooter. WASD to move, mouse to aim.",
+    "featured": true,
+    "published": "2025-09-01",
+    "screenshots": [
+      "https://i.imgur.com/abc123.png",
+      "https://i.imgur.com/abc124.png"
+    ]
+  },
+  {
+    "id": "dodge-001",
+    "title": "Dodge Game",
+    "url": "https://yourusername.github.io/dodge/",
+    "thumbnail": "",
+    "category": "Arcade",
+    "tags": ["singleplayer", "skill"],
+    "description": "Dodge obstacles as the speed increases. How long can you last?",
+    "featured": false,
+    "published": "2025-10-05",
+    "screenshots": []
+  },
+  {
+    "id": "platform-001",
+    "title": "Platformer",
+    "url": "https://yourbuddy.github.io/platformer/index.html",
+    "thumbnail": "https://i.imgur.com/kjh987.png",
+    "category": "Platformer",
+    "tags": ["platform", "puzzle"],
+    "description": "Retro platformer with puzzles and secrets.",
+    "featured": true,
+    "published": "2024-11-20",
+    "screenshots": [
+      "https://i.imgur.com/kjh987.png"
+    ]
+  }
+]
