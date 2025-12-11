@@ -1,50 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Game Portal</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Game Hub</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <h1>My Game Portal</h1>
-</header>
-
-<main>
-    <div class="game-container">
-        <!-- Game Cards -->
-        <div class="game-card" data-url="https://turtle5757.github.io/reactionTime/">
-            <img src="https://via.placeholder.com/300x200?text=Reaction+Time" alt="Reaction Time">
-            <h2>Reaction Time</h2>
-        </div>
-        <div class="game-card" data-url="https://turtle5757.github.io/MemoryTraining/">
-            <img src="https://via.placeholder.com/300x200?text=Memory+Training" alt="Memory Training">
-            <h2>Memory Training</h2>
-        </div>
-        <div class="game-card" data-url="https://turtle5757.github.io/aimTraining/">
-            <img src="https://via.placeholder.com/300x200?text=Aim+Training" alt="Aim Training">
-            <h2>Aim Training</h2>
-        </div>
-        <div class="game-card" data-url="https://turtle5757.github.io/Idle-Empire/">
-            <img src="https://via.placeholder.com/300x200?text=Idle+Empire" alt="Idle Empire">
-            <h2>Idle Empire</h2>
-        </div>
+  <header class="topbar">
+    <div class="logo">Game Hub</div>
+    <div class="controls">
+      <button id="theme-toggle" class="btn small">Dark</button>
+      <input id="search" type="search" placeholder="Search games, tags..." />
     </div>
-</main>
+  </header>
 
-<!-- Modal -->
-<div id="gameModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <iframe src="" frameborder="0" id="gameFrame"></iframe>
-    </div>
-</div>
+  <main class="container">
+    <section id="banner-section">
+      <div id="banner" class="banner"></div>
+      <div class="banner-controls">
+        <button id="prev-banner" class="btn small">◀</button>
+        <button id="next-banner" class="btn small">▶</button>
+      </div>
+    </section>
 
-<footer>
-    <p>&copy; 2025 My Game Portal</p>
-</footer>
+    <section class="toolbar">
+      <div id="categories" class="categories"></div>
+      <div class="sorts">
+        <label>Sort:
+          <select id="sort-select">
+            <option value="featured">Featured</option>
+            <option value="most-played">Most Played</option>
+            <option value="newest">Newest</option>
+            <option value="alpha">A → Z</option>
+          </select>
+        </label>
+        <label>Show:
+          <select id="show-select">
+            <option value="all">All</option>
+            <option value="favorites">Favorites</option>
+            <option value="recent">Recently Played</option>
+          </select>
+        </label>
+      </div>
+    </section>
 
-<script src="script.js"></script>
+    <section>
+      <h2>Trending</h2>
+      <div id="trending" class="grid"></div>
+    </section>
+
+    <section>
+      <h2>Recently Played</h2>
+      <div id="recent" class="grid small-grid"></div>
+    </section>
+
+    <section>
+      <h2>All Games</h2>
+      <div id="game-list" class="grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>Made for GitHub Pages • Edit <code>games.json</code> to add games</div>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
