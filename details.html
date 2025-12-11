@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Game Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="btn small">⬅ Back</a>
+    <div class="logo">Game Details</div>
+  </header>
+
+  <main class="container">
+    <div id="details" class="details"></div>
+  </main>
+
+  <script>
+    // get id param (we pass id in links)
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+    fetch("games.json").then(r=>r.json()).then(games=>{
+      const g = games.find(x=>x.id===id);
+      if(!g) {
+        document.getElementById("details").innerHTML = "<p>Game not found.</p>";
+        return;
+      }
+      const thumbnail = g.thumbnail || `https://via.placeholder.com/800x450?text=${encodeURIComponent(g.title)}`;
+      const screenshots = (g.screenshots && g.screenshots.length) ? g.screenshots : [thumbnail];
+
+      const html = `
+        <div class="detail-grid">
+          <div class="detail-media">
+            <img src="${thumbnail}" alt="${g.title}" class="big-thumb"/>
+            <div class="screenshot-row">
+              ${screenshots.map(s => `<img src="${s}" class="s-shot"/>`).join("")}
+            </div>
+          </div>
+          <div class="detail-meta">
+            <h1>${g.title}</h1>
+            <p class="meta">Category: ${g.category} • Published: ${g.published || "unknown"}</p>
+            <p>${g.description || ""}</p>
+            <div style="margin-top:12px;">
+              <a id="play-btn" class="btn large" href="game.html?u=${encodeURIComponent(g.url)}&id=${encodeURIComponent(g.id)}&t=${encodeURIComponent(g.title)}">Play</a>
+              <button id="fav-btn" class="btn large">♡ Favorite</button>
+              <a id="open-new" class="btn large" target="_blank" href="${g.url}">Open in new tab</a>
+            </div>
+            <div id="stats" style="margin-top:12px; color:var(--muted)"></div>
+          </div>
+        </div>
+      `;
+      document.getElementById("details").innerHTML = html;
+
+      // favorite toggle
+      const favKey = "favorites_v1";
+      const favBtn = document.getElementById("fav-btn");
+      function updateFav() {
+        const fav = JSON.parse(localStorage.getItem(favKey) || "[]");
+        favBtn.textContent = fav.includes(g.id) ? "♥ Favorited" : "♡ Favorite";
+      }
+      favBtn.addEventListener("click", () => {
+        const fav = JSON.parse(localStorage.getItem(favKey) || "[]");
+        if(fav.includes(g.id)) {
+          localStorage.setItem(favKey, JSON.stringify(fav.filter(x=>x!==g.id)));
+        } else {
+          fav.push(g.id);
+          localStorage.setItem(favKey, JSON.stringify(fav));
+        }
+        updateFav();
+      });
+      updateFav();
+
+      // show play count
+      const pc = JSON.parse(localStorage.getItem("playedCount_v1") || "{}");
+      document.getElementById("stats").innerText = `Plays: ${pc[g.id] || 0}`;
+    });
+  </script>
+</body>
+</html>
