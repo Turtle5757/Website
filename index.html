@@ -1,70 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Game Hub</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Games</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="logo">Game Hub</div>
-    <div class="controls">
-      <button id="theme-toggle" class="btn small">Dark</button>
-      <input id="search" type="search" placeholder="Search games, tags..." />
-    </div>
+  <header>
+    <h1>My Games</h1>
   </header>
 
-  <main class="container">
-    <section id="banner-section">
-      <div id="banner" class="banner"></div>
-      <div class="banner-controls">
-        <button id="prev-banner" class="btn small">◀</button>
-        <button id="next-banner" class="btn small">▶</button>
-      </div>
-    </section>
-
-    <section class="toolbar">
-      <div id="categories" class="categories"></div>
-      <div class="sorts">
-        <label>Sort:
-          <select id="sort-select">
-            <option value="featured">Featured</option>
-            <option value="most-played">Most Played</option>
-            <option value="newest">Newest</option>
-            <option value="alpha">A → Z</option>
-          </select>
-        </label>
-        <label>Show:
-          <select id="show-select">
-            <option value="all">All</option>
-            <option value="favorites">Favorites</option>
-            <option value="recent">Recently Played</option>
-          </select>
-        </label>
-      </div>
-    </section>
-
-    <section>
-      <h2>Trending</h2>
-      <div id="trending" class="grid"></div>
-    </section>
-
-    <section>
-      <h2>Recently Played</h2>
-      <div id="recent" class="grid small-grid"></div>
-    </section>
-
-    <section>
-      <h2>All Games</h2>
-      <div id="game-list" class="grid"></div>
-    </section>
+  <main>
+    <div class="games-container" id="gamesContainer"></div>
   </main>
 
-  <footer class="footer">
-    <div>Made for GitHub Pages • Edit <code>games.json</code> to add games</div>
-  </footer>
-
-  <script src="script.js" defer></script>
+  <script src="games.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
