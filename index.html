@@ -9,10 +9,21 @@
 <body>
   <header>
     <h1>My Games</h1>
+    <div class="theme-controls">
+      <label>Background: <input type="color" id="bgColor" value="#121212"></label>
+      <label>Button: <input type="color" id="btnColor" value="#1f1f1f"></label>
+      <label>Text: <input type="color" id="textColor" value="#ffffff"></label>
+    </div>
   </header>
 
   <main>
-    <div class="games-container" id="gamesContainer"></div>
+    <aside>
+      <div class="category-filters" id="categoryFilters"></div>
+      <div class="games-container" id="gamesContainer"></div>
+    </aside>
+    <section class="game-frame-container">
+      <iframe id="gameFrame" src="" frameborder="0"></iframe>
+    </section>
   </main>
 
   <script src="games.js"></script>
