@@ -6,27 +6,59 @@ body {
 }
 
 header {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: #1f1f1f;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  padding: 1rem;
+  background-color: #1f1f1f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 h1 {
   margin: 0;
-  font-size: 2.5rem;
+}
+
+.theme-controls label {
+  margin: 0 0.5rem;
+}
+
+main {
+  display: flex;
+  height: calc(100vh - 80px);
+}
+
+aside {
+  width: 300px;
+  background-color: #1a1a1a;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.category-filters button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
 }
 
 .games-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .game-card {
-  background: #1f1f1f;
-  border-radius: 15px;
+  background-color: #333;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -37,17 +69,26 @@ h1 {
 
 .game-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
 }
 
 .game-card img {
   width: 100%;
-  height: 150px;
+  height: 120px;
   object-fit: cover;
 }
 
 .game-card h2 {
   margin: 0.5rem 0;
-  padding: 0 0.5rem;
   text-align: center;
+}
+
+.game-frame-container {
+  flex: 1;
+  background-color: #000;
+}
+
+.game-frame-container iframe {
+  width: 100%;
+  height: 100%;
 }
